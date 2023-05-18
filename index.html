@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Travis Scott - Utopia.</title>
+  <link rel="icon" type="image/png" href="midia/utopia.jpg">
+  <style>
+    body {
+      background-color: black;
+      color: #cccccc;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 48px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 24px;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .button {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      padding: 10px 20px;
+      background-color: #1ED760;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+<!--  <audio src="SUA_MUSICA.mp3" autoplay loop></audio> -->
+  <h1>COUNTDOWN PARA A UTOPIA.</h1>
+  <p id="countdown"></p>
+  <a class="button" href="https://open.spotify.com/track/2xLMifQCjDGFmkHkpNLD9h?si=b89f6ca90d974484">SICKO MODE</a>
+
+  <script>
+    // Defina a data de destino (21 de junho de 2023 às 00h)
+    const targetDate = new Date('Jun 21, 2023 00:00:00').getTime();
+
+    // Atualize o contador a cada segundo
+    setInterval(() => {
+      // Obtenha a data e hora atual
+      const now = new Date().getTime();
+
+      // Calcule a diferença entre a data atual e a data de destino
+      const difference = targetDate - now;
+
+      // Calcule o tempo restante em dias, horas, minutos e segundos
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      // Exiba a contagem regressiva na página
+      document.getElementById('countdown').innerHTML =
+        `Faltam ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos para o grande dia.`;
+
+    }, 1000);
+  </script>
+</body>
+</html>
