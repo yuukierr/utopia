@@ -61,6 +61,12 @@
       // Calcule a diferença entre a data atual e a data de destino
       const difference = targetDate - now;
 
+  // Se a contagem regressiva terminar, exiba uma mensagem
+  if (difference <= 0) {
+    document.getElementById('countdown').innerHTML = 'A contagem regressiva terminou!';
+    return;
+  }
+
       // Calcule o tempo restante em dias, horas, minutos e segundos
       const days = Math.floor(difference / (1000 * 60 * 60 * 24));
       const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
