@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Travis Scott - Utopia.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playboi Carti - MUSIC</title>
   <link rel="icon" type="image/png" href="midia/music.jpg">
   <style>
     body {
@@ -50,22 +51,25 @@
   <a class="button" href="https://youtu.be/Ho6evSsYjDY">HBA</a>
 
   <script>
-    // Defina a data de destino (21 de junho de 2023 às 00h)
-    const targetDate = new Date('2024-09-13T00:00:00').getTime();
+    // Defina a data de destino (13 de setembro de 2024 às 00:00, horário de Brasília)
+    const targetDate = new Date('2024-09-13T00:00:00-03:00').getTime();
 
     // Atualize o contador a cada segundo
     setInterval(() => {
-      // Obtenha a data e hora atual
-      const now = new Date().getTime();
+      // Obtenha a data e hora atual (horário de Brasília)
+      const now = new Date();
+      const offset = now.getTimezoneOffset() / 60; // Diferença em horas entre o horário local e UTC
+      const brasiliaOffset = -3; // Horário de Brasília é UTC-3
+      const adjustedNow = now.getTime() + (brasiliaOffset - offset) * 60 * 60 * 1000;
 
       // Calcule a diferença entre a data atual e a data de destino
-      const difference = targetDate - now;
+      const difference = targetDate - adjustedNow;
 
-  // Se a contagem regressiva terminar, exiba uma mensagem
-  if (difference <= 0) {
-    document.getElementById('countdown').innerHTML = 'A contagem regressiva terminou!';
-    return;
-  }
+      // Se a contagem regressiva terminar, exiba uma mensagem
+      if (difference <= 0) {
+        document.getElementById('countdown').innerHTML = 'A contagem regressiva terminou!';
+        return;
+      }
 
       // Calcule o tempo restante em dias, horas, minutos e segundos
       const days = Math.floor(difference / (1000 * 60 * 60 * 24));
@@ -75,7 +79,7 @@
 
       // Exiba a contagem regressiva na página
       document.getElementById('countdown').innerHTML =
-        `2024 MUSIC. ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds}.`;
+        `2024 MUSIC. ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos.`;
 
     }, 1000);
   </script>
